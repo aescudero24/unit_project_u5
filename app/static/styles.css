@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: verdana;
+  text-align: center;
+}
+
+html,
+body {
+  background: white;
+}
+
+.header {
+  color: white;
+  -webkit-text-stroke: 1px white;
+  text-align: left;
+  background: black;
+  padding: 40px;
+}
+
+#top {
+  background: #00c49a;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.heading {
+  color: white;
+  -webkit-text-stroke: 2px darkgreen;
+  font-size: 4em;
+}
+
+#backstory {
+  font-size: 1.5em;
+  padding: 50px;
+  height: 300px;
+  margin-bottom: 100px;
+}
+
+.text {
+  -webkit-text-stroke: 1px darkgreen;
+}
+
+.image {
+  height: 150px;
+  width: auto;
+}
+
+#main {
+  width: 99%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.report {
+  flex-direction: column;
+  justify-content: flex-start; /* Align items to the start of the flex container */
+  align-items: flex-start; /* Align items to the start of the flex container */
+  width: 400px;
+  height: 200px;
+  display: flex;
+  text-align: left;
+  flex-wrap: wrap;
+  padding: 20px; /* Adjust as needed */
+  margin: 10px; /* Adjust as needed */
+  background-color: #f8f8f8; /* Light gray or your preferred color */
+  border: 1px solid #ddd; /* Light border color */
+  border-radius: 5px; /* Rounded corners */
+  font-family: "Arial", sans-serif; /* Choose a suitable font */
+  font-size: 16px; /* Adjust as needed */
+  color: #333; /* Text color */
+  overflow-y: auto;
+}
+
+.report p {
+  margin: 5px 0; /* Adjust as needed */
+  text-align: left;
+}
+
+.footer {
+  background: black;
+  padding: 40px;
+  margin-top: 100px;
+}

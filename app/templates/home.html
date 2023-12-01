@@ -1,1 +1,88 @@
-{% extends "root.html" %} {% block content%} {% endblock content%}
+{% extends "root.html" %} {% load static %} {% block setup %}
+<title>Coding Chronicles</title>
+{% endblock setup %}{% block styles %}
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+  integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+  integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+{% endblock styles %} {% block content %}
+<div id="top">
+  <h1 class="heading">Coding Chronicles: Django</h1>
+</div>
+<div id="backstory">
+  <p class="text">A string of serial murders casts a sinister shadow over the thoroughfares of Django City, leaving law enforcement and private detectives seeking your assistance to apprehend the elusive killer.</p>
+  <br>
+  <p class="text">The most recent victim of the Django Shadow Perpetrator was on November 30, 2023, and the investigator's last name was Davenport.</p>
+  <br>
+  <p class="text">Use the icons below to sift through evidence and information, piecing together the puzzle to identify the perpetrator. First you're going to want to check the crime scenes.</p></div>
+<div class="owl-carousel owl-theme">
+  <div class="item"><a href="{% url "report" %}">
+    <img class="image" src="{% static "images/crime_scene_report.png" %}" alt="Crime Scenes" title="Crime Scenes"></a>
+  </div>
+  <div class="item"><a href="{% url "suspects" %}">
+    <img class="image" src="{% static "images/person_icon_2.png" %}" alt="Suspect Info" title="Suspect Info"></a>
+  </div>
+  <div class="item"><a href="{% url "drivers" %}">
+    <img class="image" src="{% static "images/car.png" %}" alt="Driver Info" title="Driver Info"></a>
+  </div>
+  <div class="item"><a href="{% url "library" %}">
+    <img class="image" src="{% static "images/books.png" %}" alt="Library Info" title="Library Info"></a>
+  </div>
+  <div class="item"><a href="{% url "interrogation" %}">
+    <img class="image" src="{% static "images/interview.png" %}" alt="Interrogation Room" title="Interrogation Room"></a>
+  </div>
+  <div class="item"><a href="{% url "solve" %}">
+    <img class="image" src="{% static "images/magnifying_glass.png" %}" alt="Solve Mystery" title="Solve Mystery"></a>
+  </div>
+</div>
+{% endblock content %} {% block js %}
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+  integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+  integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    $(".owl-carousel").owlCarousel({
+      loop: true,
+      margin: 20,
+      nav: false,
+      autoplay: true,
+      autoplayTimeout: 7000,
+      stagePadding: 250,
+      dots: false,
+      responsive: {
+        0: {
+          items: 1,
+        },
+        600: {
+          items: 3,
+        },
+        1000: {
+          items: 5,
+        },
+        1400: {
+          items: 3,
+        },
+      },
+    });
+  });
+</script>
+{% endblock js %}

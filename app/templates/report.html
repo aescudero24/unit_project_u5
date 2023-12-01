@@ -1,0 +1,33 @@
+{% extends "root.html" %} {% block setup %}
+<title>Crime Scene Reports</title>
+{% endblock setup %}{% block content %}
+<p>This is the crime scene report page.</p>
+<form action="{% url "report" %}">
+    {% csrf_token %} {{ form.as_p }}
+
+    <button>Search</button>
+</form>
+<div id="main">
+{% if not reports%}
+    {% for report in all_reports %}
+    <div class="report">
+        <p><u>Date</u>: {{ report.date }}</p>
+        <p><u>Location</u>: {{ report.location }}</p>
+        <p><u>Officer</u>: {{ report.officer }}</p>
+        <p><u>Description</u>: {{ report.description }}</p>
+    </div>
+    
+    {% endfor %}
+
+{% elif reports %}
+    {% for report in  reports%}
+    <div class="report">
+        <p><u>Date</u>: {{ report.date }}</p>
+        <p><u>Location</u>: {{ report.location }}</p>
+        <p><u>Officer</u>: {{ report.officer }}</p>
+        <p><u>Description</u>: {{ report.description }}</p>
+    </div>
+    {% endfor %}
+{% endif %}
+</div>
+{% endblock content %}

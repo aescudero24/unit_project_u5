@@ -17,9 +17,23 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from app.views import home_view
+from app.views import (
+    home_view,
+    crime_scene_report_view,
+    suspects_view,
+    drivers_view,
+    library_view,
+    interrogation_view,
+    solve_view,
+)
 
 urlpatterns = [
     path("", home_view, name="home"),
-    path("admin/", admin.site.urls),
+    path("report/", crime_scene_report_view, name="report"),
+    path("suspects/", suspects_view, name="suspects"),
+    path("drivers/", drivers_view, name="drivers"),
+    path("library/", library_view, name="library"),
+    path("interrogation/", interrogation_view, name="interrogation"),
+    path("solve/", solve_view, name="solve"),
+    path("admin/", admin.site.urls, name="admin"),
 ]
