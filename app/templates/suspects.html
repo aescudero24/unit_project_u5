@@ -1,0 +1,34 @@
+{% extends "root.html" %}{% block setup %}
+<title>Suspects</title>
+{% endblock setup %}{% block content %}
+<div id="main">
+    <div id="search">
+        <form action="{% url "suspect" %}">
+            {% csrf_token %} {{ form.as_p }}
+        
+            <button>Search Suspects</button>
+        </form>
+    </div>
+    <div id="data">
+        {% if not filtered_suspects%}
+            {% for suspect in all_suspects %}
+                <div class="data">
+                    <p><u>Personal ID</u>: {{ suspect.personal_id }}</p>
+                    <p><u>First Name</u>: {{ suspect.first_name }}</p>
+                    <p><u>Last Name</u>: {{ suspect.last_name }}</p>
+                    <p><u>License ID</u>: {{ suspect.license_id }}</p>
+                </div>
+            {% endfor %}
+
+        {% elif filtered_suspects %}
+            {% for suspect in  filtered_suspects%}
+            <div class="data">
+                <p><u>Personal ID</u>: {{ suspect.personal_id }}</p>
+                <p><u>First Name</u>: {{ suspect.first_name }}</p>
+                <p><u>Last Name</u>: {{ suspect.last_name }}</p>
+                <p><u>License ID</u>: {{ suspect.license_id }}</p>
+            </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>{% endblock content %}

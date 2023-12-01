@@ -36,7 +36,29 @@ def crime_scene_report_view(request: HttpRequest) -> HttpResponse:
 
 
 def suspects_view(request: HttpRequest) -> HttpResponse:
-    return render(request, "home.html")
+    if models.CrimeSceneReport.objects.all().count() == 0:
+        crime_scene_report_data = models.load_crime_scene_report_data()
+        models.save_crime_scene_report_data(crime_scene_report_data)
+    form = CrimeSceneReportForm(request.GET)
+    if form.is_valid():
+        personal_id = form.cleaned_data["personal_id"]
+        first_name = form.cleaned_data["first_name"]
+        last_name = form.cleaned_data["last_name"]
+        drivers_license_id = form.cleaned_data["drivers_license_id"]
+        all_suspects = models.all_suspects()
+        filtered_suspects = models.find_suspects(
+            personal_id, first_name, last_name, drivers_license_id
+        )
+        return render(
+            request,
+            "suspect.html",
+            {
+                "form": form,
+                "all_reports": all_reports,
+                "filtered_reports": filtered_reports,
+            },
+        )
+    return render(request, "suspect.html", {"form": form})
 
 
 def drivers_view(request: HttpRequest) -> HttpResponse:

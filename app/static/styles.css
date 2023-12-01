@@ -46,41 +46,59 @@ body {
 }
 
 .image {
-  height: 150px;
+  height: 300px;
   width: auto;
 }
 
 #main {
   width: 99%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
 
-.report {
+#search {
+  margin: 3%;
+  width: 800px;
+  padding: 60px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #00c49a;
+}
+
+#data {
+  justify-content: center;
+  align-items: center;
+  width: 99%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.data {
   flex-direction: column;
-  justify-content: flex-start; /* Align items to the start of the flex container */
-  align-items: flex-start; /* Align items to the start of the flex container */
+  justify-content: flex-start;
+  align-items: flex-start;
   width: 400px;
   height: 200px;
   display: flex;
   text-align: left;
   flex-wrap: wrap;
-  padding: 20px; /* Adjust as needed */
-  margin: 10px; /* Adjust as needed */
-  background-color: #f8f8f8; /* Light gray or your preferred color */
-  border: 1px solid #ddd; /* Light border color */
-  border-radius: 5px; /* Rounded corners */
-  font-family: "Arial", sans-serif; /* Choose a suitable font */
-  font-size: 16px; /* Adjust as needed */
-  color: #333; /* Text color */
+  padding: 20px;
+  margin: 10px;
+  background: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  color: #333;
   overflow-y: auto;
 }
 
-.report p {
-  margin: 5px 0; /* Adjust as needed */
+.data p {
+  margin: 5px;
   text-align: left;
 }
 
