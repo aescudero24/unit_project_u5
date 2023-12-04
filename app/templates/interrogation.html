@@ -1,0 +1,30 @@
+{% extends "root.html" %}{% block setup %}
+<title>Interrogation Room</title>
+{% endblock setup %}{% block content %}
+<div id="main">
+    <div id="search">
+        <form action="{% url "interrogation" %}">
+            {% csrf_token %} {{ form.as_p }}
+        
+            <button>Search Interviews</button>
+        </form>
+    </div>
+    <div id="data">
+        {% if not filtered_interviews%}
+            {% for interview in all_interviews %}
+                <div class="data">
+                    <p><u>Personal ID</u>: {{ interview.personal_id }}</p>
+                    <p><u>Description</u>: {{ interview.description }}</p>
+                </div>
+            {% endfor %}
+        {% elif filtered_interviews %}
+            {% for interview in filtered_interviews %}
+                <div class="data">
+                    <p><u>Personal ID</u>: {{ interview.personal_id }}</p>
+                    <p><u>Description</u>: {{ interview.description }}</p>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}

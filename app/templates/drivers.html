@@ -1,0 +1,35 @@
+{% extends "root.html" %}{% block setup %}
+<title>Drivers License Information</title>
+{% endblock setup %}{% block content %}
+<div id="main">
+    <div id="search">
+        <form action="{% url "drivers" %}">
+            {% csrf_token %} {{ form.as_p }}
+        
+            <button>Search Drivers Licenses</button>
+        </form>
+    </div>
+    <div id="data">
+        {% if not filtered_licenses%}
+            {% for license in all_licenses %}
+                <div class="data">
+                    <p><u>License ID</u>: {{ license.license_id }}</p>
+                    <p><u>Age</u>: {{ license.age }}</p>
+                    <p><u>Height</u>: {{ license.height }}</p>
+                    <p><u>Hair Color</u>: {{ license.hair_color }}</p>
+                    <p><u>Gender</u>: {{ license.gender }}</p>
+                </div>
+            {% endfor %}
+        {% elif filtered_licenses %}
+            {% for license in filtered_licenses %}
+                <div class="data">
+                    <p><u>License ID</u>: {{ license.license_id }}</p>
+                    <p><u>Age</u>: {{ license.age }}</p>
+                    <p><u>Height</u>: {{ license.height }}</p>
+                    <p><u>Hair Color</u>: {{ license.hair_color }}</p>
+                    <p><u>Gender</u>: {{ license.gender }}</p>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>{% endblock content %}

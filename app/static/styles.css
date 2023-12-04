@@ -50,6 +50,15 @@ body {
   width: auto;
 }
 
+.image:hover {
+  cursor: pointer;
+}
+
+.image:active {
+  transform: scale(0.9);
+  cursor: grab;
+}
+
 #main {
   width: 99%;
   display: flex;
@@ -100,6 +109,13 @@ body {
 .data p {
   margin: 5px;
   text-align: left;
+}
+
+#solution {
+  text-align: center;
+  display: inline-block;
+  width: 600px;
+  height: 600px;
 }
 
 .footer {

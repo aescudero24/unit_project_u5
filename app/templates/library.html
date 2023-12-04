@@ -1,0 +1,32 @@
+{% extends "root.html" %}{% block setup %}
+<title>Library Card Information</title>
+{% endblock setup %}{% block content %}
+<div id="main">
+    <div id="search">
+        <form action="{% url "library" %}">
+            {% csrf_token %} {{ form.as_p }}
+        
+            <button>Search Library Cards</button>
+        </form>
+    </div>
+    <div id="data">
+        {% if not filtered_cards%}
+            {% for card in all_cards %}
+                <div class="data">
+                    <p><u>Last Name</u>: {{ card.last_name }}</p>
+                    <p><u>Aisle</u>: {{ card.aisle }}</p>
+                    <p><u>Books</u>: {{ card.books }}</p>
+                </div>
+            {% endfor %}
+        {% elif filtered_cards %}
+            {% for card in all_cards %}
+                <div class="data">
+                    <p><u>Last Name</u>: {{ card.last_name }}</p>
+                    <p><u>Aisle</u>: {{ card.aisle }}</p>
+                    <p><u>Books</u>: {{ card.books }}</p>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}

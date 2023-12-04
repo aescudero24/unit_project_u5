@@ -1,9 +1,9 @@
 {% extends "root.html" %}{% block setup %}
-<title>Suspects</title>
+<title>Suspect Information</title>
 {% endblock setup %}{% block content %}
 <div id="main">
     <div id="search">
-        <form action="{% url "suspect" %}">
+        <form action="{% url "suspects" %}">
             {% csrf_token %} {{ form.as_p }}
         
             <button>Search Suspects</button>
@@ -16,17 +16,16 @@
                     <p><u>Personal ID</u>: {{ suspect.personal_id }}</p>
                     <p><u>First Name</u>: {{ suspect.first_name }}</p>
                     <p><u>Last Name</u>: {{ suspect.last_name }}</p>
-                    <p><u>License ID</u>: {{ suspect.license_id }}</p>
+                    <p><u>Drivers License ID</u>: {{ suspect.drivers_license_id }}</p>
                 </div>
             {% endfor %}
-
         {% elif filtered_suspects %}
             {% for suspect in  filtered_suspects%}
             <div class="data">
                 <p><u>Personal ID</u>: {{ suspect.personal_id }}</p>
                 <p><u>First Name</u>: {{ suspect.first_name }}</p>
                 <p><u>Last Name</u>: {{ suspect.last_name }}</p>
-                <p><u>License ID</u>: {{ suspect.license_id }}</p>
+                <p><u>Drivers License ID</u>: {{ suspect.drivers_license_id }}</p>
             </div>
             {% endfor %}
         {% endif %}

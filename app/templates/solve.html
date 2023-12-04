@@ -1,0 +1,18 @@
+{% extends "root.html" %}{% block setup %}
+<title>Solve the Mystery</title>
+{% endblock setup %}{% block content %}
+<div id="main">
+    <div id="search">
+        <form action="{% url "solve" %}">
+            {% csrf_token %} {{ form.as_p }}
+
+            <button>Enter</button>
+        </form>
+    </div>
+</div>
+<div id="solution">
+{% if result %}
+<p>{{ result }}</p>
+{% endif %}
+</div>
+{% endblock content %}
